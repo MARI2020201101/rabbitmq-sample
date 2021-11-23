@@ -13,9 +13,9 @@ public class PublishController {
     RabbitTemplate rabbitTemplate;
 
     @GetMapping("/sample/queue")
-    public String samplePublish() {
+    public String samplePublish(String message) {
         rabbitTemplate.convertAndSend(EXCHANGE_NAME, "sample.mari",
-                "RabbitMQ + Springboot = Success!");
+                "Message : "+ message);
         return "message sending!";
     }
 
